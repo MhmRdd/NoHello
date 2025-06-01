@@ -166,7 +166,7 @@ bool switchnsto(pid_t pid) {
 		if (!res)
 			return true;
 		else {
-			LOGE("setns(procfd_open(%d, 0) -> %d, CLONE_NEWNS): %s", pid, fd, strerror(errno));
+			LOGE("setns(pidfd_open(%d, 0) -> %d, CLONE_NEWNS): %s", pid, fd, strerror(errno));
 			goto fallback;
 		}
 	} else {
