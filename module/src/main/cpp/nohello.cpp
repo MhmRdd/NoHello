@@ -549,7 +549,7 @@ static void NoRoot(int fd) {
 				if (redef && redef.is_open()) {
 					for (const auto &rule: rules)
 						redef << rule << std::endl;
-					f.close();
+					redef.close();
 				} else
 					LOGE("Unable to create `/data/adb/nohello/umount`");
 			}
