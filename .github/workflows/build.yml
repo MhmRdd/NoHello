@@ -2,9 +2,9 @@ name: Build
 
 on:
   push:
-    branches: [ "master" ]
+    branches: ["master"]
   pull_request:
-    branches: [ "master" ]
+    branches: ["master"]
   workflow_dispatch:
 
 jobs:
@@ -32,12 +32,11 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
         with:
-          packages: ''
+          packages: ""
 
       - name: Build with Gradle
         run: |
-          ./gradlew zipRelease
-          ./gradlew zipDebug
+          ./gradlew zipRelease zipDebug assembleRelease
 
       - name: Prepare artifact
         if: success()
@@ -61,8 +60,9 @@ jobs:
           path: "./module-debug/*"
 
       - name: Upload release mappings
+        if: success()
         uses: actions/upload-artifact@v4
         with:
           name: release-mappings
           path: "./service/build/outputs/mapping/release"
-          
+          if-no-files-found: ignore
