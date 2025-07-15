@@ -30,7 +30,7 @@ Using the **release** build is recommended over the debug build. Only use debug 
 ### KernelSU & KernelSU Next users:
 1. Install ZygiskNext or ReZygisk.
 2. Make sure the unmount setting is enabled for the target app in the Manager.
-3. Disable Umount modules in settings for Manager (if exists).
+3. Disable `Umount modules` in settings for Manager (if exists).
 4. Disable `Enforce DenyList` in ZygiskNext/ReZygisk settings if there is one.
 
 ### APatch users:
